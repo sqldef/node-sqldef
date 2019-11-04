@@ -68,10 +68,10 @@ Options:
   -v, --version     Show version number                                [boolean]
 
 Examples:
-  cli.js export --user=cool                 Save your current schema, from your
+  sqldef export --user=cool                 Save your current schema, from your
   --password=mysecret                       mysql database, in schema.sql
   --database=mydatabase
-  cli.js import --user=cool                 Save the structure from your currnet
+  sqldef import --user=cool                 Save the structure from your currnet
   --password=mysecret                       database in schema.sql
   --database=mydatabase
 ```
@@ -130,4 +130,4 @@ Now, install as a dev-dependency in your project with `npm i -D sqldef`, and mak
 }
 ```
 
-Now, configure your CI to execute `npm run migrate` when code gets checked in. You might want to keep the above `.sqldefrc` method (from above) for development. The configuration you setup there will override the `DB_` environment vars, so it should work pretty well together. If you are using environment variables for other things, you could also just use your environment, and set it all in once place (like `.env` using [dotenv](https://www.npmjs.com/package/dotenv))
+Now, configure your CI to execute `npm run migrate` when code gets checked in. You might want to keep the above `.sqldefrc` method (from above) for development. The configuration you setup there will override the `DB_` environment vars, so it should work pretty well together. If you are using environment variables for other things, you could also just use your environment, and set it all in once place (like `.env` using [dotenv](https://www.npmjs.com/package/dotenv).)
