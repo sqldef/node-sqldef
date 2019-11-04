@@ -94,7 +94,7 @@ Here are some cool ways to use this tool in your project.
 
 Make a file called `schema.sql`, and make a `.sqldefrc` file with your settings. Make sure `.sqldefrc` is in your `.gitignore`, so you don't accidentally check-in your database secrets.
 
-**.sqldef**
+**.sqldefrc**
 ```yaml
 type: mysql
 host: localhost
