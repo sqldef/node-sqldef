@@ -1,0 +1,39 @@
+{
+  "name": "sqldef",
+  "version": "0.0.0",
+  "description": "Simple node wrapper around sqldef for easy use with node",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sqldef/node-sqldef.git"
+  },
+  "script": {
+    "postinstall": "node postinstall.js"
+  },
+  "keywords": [
+    "migration",
+    "mysql",
+    "postgres"
+  ],
+  "author": "David Konsumer <konsumer@jetboystudio.com> (http://konsumer.js.org)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sqldef/node-sqldef/issues"
+  },
+  "homepage": "https://github.com/sqldef/node-sqldef#readme",
+  "dependencies": {
+    "cosmiconfig": "^6.0.0",
+    "jszip": "^3.2.2",
+    "prompt-confirm": "^2.0.4",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7",
+    "tar.gz": "^1.0.7",
+    "yargs": "^14.2.0"
+  },
+  "bin": {
+    "sqldef": "./cli.js"
+  },
+  "engines": {
+    "node": ">=10.0"
+  }
+}
