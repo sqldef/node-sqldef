@@ -24,20 +24,22 @@ const run = async () => {
     .example('$0 import --user=cool --password=mysecret --database=mydatabase', 'Save the structure from your currnet database in schema.sql')
 
     .command('export', 'Export your database to a file', a => {}, async args => {
+      args.port = args.port || getPort(args)
+      const { file, type, host, database, user, password, socket, port = getPort(args) } = args
+      console.log(await sqldef({ file, type, host, database, user, password, socket, port, ...config, get: true }))
+    })
+
+    .command('import', 'Import your database from a file', a => {}, async args => {
       const { file, type, host, database, user, password, socket, noConfirm, port = getPort(args) } = args
       if (!noConfirm) {
-        console.log(await sqldef({ file, type, host, database, user, password, socket, port, dry: true, get: true }))
+        console.log(await sqldef({ file, type, host, database, user, password, socket, port, ...config, dry: true }))
         const prompt = new Confirm('Do you want to run this?')
         if (!(await prompt.run())) {
           console.error('Export canceled.')
           process.exit(1)
         }
       }
-      console.log(await sqldef({ file, type, host, database, user, password, socket, port, get: true }))
-    })
-
-    .command('import', 'Import your database from a file', a => {}, async args => {
-
+      console.log(await sqldef({ file, type, host, database, user, password, socket, port, ...config }))
     })
 
     .option('f', {
