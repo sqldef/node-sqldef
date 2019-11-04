@@ -4,6 +4,7 @@
 
 const { cosmiconfig } = require('cosmiconfig')
 const Confirm = require('prompt-confirm')
+const { writeFile } = require('fs').promises
 const sqldef = require('./index')
 
 // get a reasonable port
@@ -21,12 +22,13 @@ const run = async () => {
 
     .alias('v', 'version')
     .example('$0 export --user=cool --password=mysecret --database=mydatabase', 'Save your current schema, from your mysql database, in schema.sql')
-    .example('$0 import --user=cool --password=mysecret --database=mydatabase', 'Save the structure from your currnet database in schema.sql')
+    .example('$0 import --user=cool --password=mysecret --database=mydatabase', 'Update your database to match schema.sql')
 
     .command('export', 'Export your database to a file', a => {}, async args => {
       args.port = args.port || getPort(args)
       const { file, type, host, database, user, password, socket, port = getPort(args) } = args
-      console.log(await sqldef({ file, type, host, database, user, password, socket, port, ...config, get: true }))
+      const out = await sqldef({ type, host, database, user, password, socket, port, ...config, get: true })
+      await writeFile(file, out)
     })
 
     .command('import', 'Import your database from a file', a => {}, async args => {
