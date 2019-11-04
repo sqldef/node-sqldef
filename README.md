@@ -35,7 +35,7 @@ const main = async () => {
     port,         // the port of your database
     socket,       // the unix socket (for mysql)
     file,         // the schema file to read/write
-    dry: true,    // dry run - don;t do anything to the database
+    dry: true,    // dry run - don't do anything to the database
     get: true     // get the current definition from database
   }))
 }
