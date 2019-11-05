@@ -4,7 +4,7 @@ Simple node wrapper around [sqldef](https://github.com/k0kubun/sqldef) for easy 
 
 This is a super-simple wrapper around [sqldef](https://github.com/k0kubun/sqldef) that will download the appropriate (for your platform/arch) CLI from [sqldef releases](https://github.com/k0kubun/sqldef/releases) and run it. It works with mysql & postgres.
 
-If it's unclear how this might be usful in your workflow, just checkout [this live demo](https://sqldef.github.io/sqldef-wasm/).
+If it's unclear how this might be usful in your workflow, just checkout [this live demo](https://sqldef.github.io/).
 
 ## usage
 
