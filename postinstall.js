@@ -27,8 +27,8 @@ const ext = platform === 'linux' ? 'tar.gz' : 'zip'
 
 const run = async () => {
   console.log('Downloading & extracting compiled sqldef binaries.')
-  const dataM = await rp({ url: `https://github.com/k0kubun/sqldef/releases/download/v0.5.7/mysqldef_${platform}_${arch}.${ext}`, method: 'GET', encoding: null })
-  const dataP = await rp({ url: `https://github.com/k0kubun/sqldef/releases/download/v0.5.7/psqldef_${platform}_${arch}.${ext}`, method: 'GET', encoding: null })
+  const dataM = await rp({ url: `https://github.com/sqldef/sqldef/releases/latest/download/mysqldef_${platform}_${arch}.${ext}`, method: 'GET', encoding: null })
+  const dataP = await rp({ url: `https://github.com/sqldef/sqldef/releases/latest/download/psqldef_${platform}_${arch}.${ext}`, method: 'GET', encoding: null })
   const getFile = ext === 'zip' ? unZipFile : unTarballFile
   await getFile(dataM, 'mysqldef', `${__dirname}/mysqldef`)
   await chmod(`${__dirname}/mysqldef`, '755')
